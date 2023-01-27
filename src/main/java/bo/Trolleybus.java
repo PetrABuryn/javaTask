@@ -1,4 +1,4 @@
 package bo;
 
-public class Trolleybus extends Transport{
+public class Trolleybus extends Bus{
 }

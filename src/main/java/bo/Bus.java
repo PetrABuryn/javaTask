@@ -1,4 +1,4 @@
 package bo;
 
-public class Bus extends Transport{
+public abstract class Bus extends Transport{
 }
