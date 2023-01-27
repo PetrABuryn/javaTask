@@ -1,11 +1,5 @@
 package bo;
 
-import enums.Brand;
-import enums.Color;
+public interface Transport {
 
-public abstract class Transport {
-    protected Brand brand;
-    protected Color color;
-    protected double fuelConsumption;
-    protected double costPrice;
 }

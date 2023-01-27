@@ -1,0 +1,12 @@
+
+N
+src/main/java/enums/Brand.java,0\8\087cee73fa813773aea9b73abdc83663fe3f3b56
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+N
+src/main/java/enums/Color.java,2\b\2b8ac0254f1815d8827f13072cd61e22ccf9e692
