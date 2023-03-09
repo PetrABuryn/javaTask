@@ -42,7 +42,7 @@ public abstract class TransportFleet {
                 return vehicle;
             }
         }
-        throw new TransportException(String.format("No transport found as per your request: brand '%s', engine '%s', cost: %s, fuel consumption: %s", brand, engine, cost, fuelConsumption));
+        throw new TransportException(String.format("No vehicle found as per params: brand '%s', engine '%s', cost: %s, fuel consumption: %s", brand, engine, cost, fuelConsumption));
     }
 
     public double getFleetTotalCost() {

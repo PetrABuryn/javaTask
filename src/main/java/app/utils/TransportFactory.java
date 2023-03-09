@@ -14,7 +14,7 @@ import app.exceptions.TransportFleetException;
 public class TransportFactory {
 
 
-    public static TransportFleet getTransportFleet(Vehicle vehicle) throws Exception {
+    public static TransportFleet getTransportFleet(Vehicle vehicle) {
         switch (vehicle) {
             case BUS:
                 return new BusFleet(getAvailableBuses());
