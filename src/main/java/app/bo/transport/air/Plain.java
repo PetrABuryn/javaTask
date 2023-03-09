@@ -1,6 +1,6 @@
-package bo.transport.air;
+package app.bo.transport.air;
 
-import bo.transport.AirTransport;
+import app.bo.transport.AirTransport;
 
 public abstract class Plain extends AirTransport {
 }

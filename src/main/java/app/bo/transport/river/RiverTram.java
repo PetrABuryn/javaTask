@@ -1,6 +1,6 @@
-package bo.transport.river;
+package app.bo.transport.river;
 
-import bo.transport.RiverTransport;
+import app.bo.transport.RiverTransport;
 
 public class RiverTram extends RiverTransport {
 }
