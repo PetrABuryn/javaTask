@@ -2,5 +2,5 @@ package app.bo.transport.river;
 
 import app.bo.transport.RiverTransport;
 
-public class RiverTram extends RiverTransport {
+public abstract class RiverTram extends RiverTransport {
 }
