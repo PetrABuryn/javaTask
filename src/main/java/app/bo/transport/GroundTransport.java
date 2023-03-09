@@ -10,7 +10,7 @@ public abstract class GroundTransport implements Transport {
     protected double fuelConsumption;
 
 
-    GroundTransport(Brand brand, Engine engine, double cost, double fuelConsumption) {
+    protected GroundTransport(Brand brand, Engine engine, double cost, double fuelConsumption) {
         this.brand = brand;
         this.engine = engine;
         this.cost = cost;
