@@ -4,6 +4,8 @@ import app.bo.transport.Vehicle;
 import app.enums.Brand;
 import app.enums.Engine;
 import app.exceptions.VehicleException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -12,21 +14,20 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public abstract class Fleet {
+    private static final Logger log = LoggerFactory.getLogger(Fleet.class);
 
     private final List<Vehicle> vehicles;
 
     protected Fleet(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
+        this.vehicles = new ArrayList<>(vehicles);
     }
 
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public List<Vehicle> sortVehiclesByFuelConsumption() {
-        List<Vehicle> vs = new ArrayList<>(vehicles);
-        vs.sort(Comparator.comparing(Vehicle::getFuelConsumption));
-        return vs;
+    public void sortVehiclesByFuelConsumption() {
+        vehicles.sort(Comparator.comparing(Vehicle::getFuelConsumption));
     }
 
     public List<Vehicle> findVehicles(Brand brand, Engine engine, Double cost, Double fuelConsumption) {
@@ -77,6 +78,10 @@ public abstract class Fleet {
             throw new VehicleException("No vehicle found as per the filters");
         }
         return vs;
+    }
+
+    public void printVehicles() {
+        this.vehicles.forEach(v -> log.info("{}", v));
     }
 
     public double getFleetTotalCost() {
