@@ -6,10 +6,15 @@ import app.enums.Brand;
 import app.enums.Engine;
 import app.enums.VehicleType;
 import app.utils.TransportFleetFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+
 public class App {
+
+    private static final Logger log = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
 
@@ -18,47 +23,46 @@ public class App {
         /*
          * Print out Buss fleet vehicles
          */
-        System.out.println("Bus fleet");
-        busFleet.getVehicles().forEach(System.out::println);
-        System.out.println();
+        log.info("Bus fleet:");
+        busFleet.getVehicles().forEach(v -> log.info("{}", v));
+        log.info("");
         /*
          * Print out Buss fleet vehicles sorted by fuel consumption
          */
-        System.out.println("Bus fleet sorted by fuel consumption");
+        log.info("Bus fleet sorted by fuel consumption");
         List<Vehicle> busFleetSorted = busFleet.sortVehiclesByFuelConsumption();
-        busFleetSorted.forEach(System.out::println);
-        System.out.println();
+        busFleetSorted.forEach(v -> log.info("{}", v));
+        log.info("");
         /*
          * Print out Buss fleet vehicles total cost
          */
-        System.out.println("Bus fleet total cost is " + busFleet.getFleetTotalCost());
-        System.out.println();
+        log.info("Bus fleet total cost is '{}'", busFleet.getFleetTotalCost());
+        log.info("");
         /*
          * Print out Buss fleet vehicles filtered by the params
          * If argument is null then it is ignored while filtering
          */
-        System.out.println("Bus fleet vehicles filtered by the params");
         List<Vehicle> buses = busFleet.findVehicles(Brand.SKODA, null, null, 24.0);
-        System.out.println("Found vehicles: " + buses);
-        System.out.println();
+        log.info("Bus fleet vehicles filtered by the params: {}",buses);
+        log.info("");
         /*
          * Print out Trolleybus fleet vehicles sorted by fuel consumption
          */
-        System.out.println("Trolleybus fleet");
-        trolleybusFleet.getVehicles().forEach(System.out::println);
-        System.out.println();
+        log.info("Trolleybus fleet:");
+        trolleybusFleet.getVehicles().forEach(v -> log.info("{}", v));
+        log.info("");
         /*
          * Print out trolleybus fleet vehicles sorted by fuel consumption
          */
-        System.out.println("Trolleybus fleet total cost is " + trolleybusFleet.getFleetTotalCost());
-        System.out.println();
+        log.info("Trolleybus fleet total cost is '{}'", trolleybusFleet.getFleetTotalCost());
+        log.info("");
         /*
          * Print out Trolleybus fleet vehicles filtered by the params
          * If argument is null then it is ignored while filtering
          */
-        System.out.println("Bus fleet vehicles filtered by the params");
-        System.out.println("Throws exception as no vehicles found");
+        log.info("Trolleybus fleet vehicles filtered by the params");
+        log.info("Throws exception as no vehicles found");
         List<Vehicle> trBuses = trolleybusFleet.findVehicles(Brand.SCHULER, Engine.ICE, null, 24.0);
-        System.out.println("Found vehicles: " + trBuses);
+        log.info("Found vehicles: {}", trBuses);
     }
 }
