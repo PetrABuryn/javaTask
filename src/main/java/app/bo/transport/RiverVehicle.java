@@ -1,6 +1,7 @@
 package app.bo.transport;
 
-import app.bo.transport.Vehicle;
-
 public interface RiverVehicle {
+    double getDisplacement();
+
+    void setDisplacement(double displacement);
 }

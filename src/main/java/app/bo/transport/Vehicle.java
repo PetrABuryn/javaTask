@@ -21,7 +21,7 @@ public abstract class Vehicle {
         return brand;
     }
 
-    public void setBrand(Brand brand) {
+    protected void setBrand(Brand brand) {
         this.brand = brand;
     }
 

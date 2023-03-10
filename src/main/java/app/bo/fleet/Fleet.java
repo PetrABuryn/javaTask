@@ -3,8 +3,9 @@ package app.bo.fleet;
 import app.bo.transport.Vehicle;
 import app.enums.Brand;
 import app.enums.Engine;
-import app.exceptions.TransportException;
+import app.exceptions.VehicleException;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -22,8 +23,10 @@ public abstract class Fleet {
         return vehicles;
     }
 
-    public void sortVehiclesByFuelConsumption() {
-        vehicles.sort(Comparator.comparing(Vehicle::getFuelConsumption).reversed());
+    public List<Vehicle> sortVehiclesByFuelConsumption() {
+        List<Vehicle> vs = new ArrayList<>(vehicles);
+        vs.sort(Comparator.comparing(Vehicle::getFuelConsumption));
+        return vs;
     }
 
     public List<Vehicle> findVehicles(Brand brand, Engine engine, Double cost, Double fuelConsumption) {
@@ -61,7 +64,7 @@ public abstract class Fleet {
         Optional.ofNullable(fuelConsumption).ifPresent(b -> errorMessage.append("fuel consumption: ").append(fuelConsumption));
 
         if (vs.isEmpty()) {
-            throw new TransportException(errorMessage.toString());
+            throw new VehicleException(errorMessage.toString());
         }
         return vs;
     }
@@ -71,7 +74,7 @@ public abstract class Fleet {
                 .filter(predicates.stream().reduce(p -> true, Predicate::and))
                 .toList();
         if (vs.isEmpty()) {
-            throw new TransportException("No vehicle found as per the filters");
+            throw new VehicleException("No vehicle found as per the filters");
         }
         return vs;
     }

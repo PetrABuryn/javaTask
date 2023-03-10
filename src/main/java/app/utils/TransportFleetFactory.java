@@ -15,38 +15,45 @@ import java.util.List;
 
 public class TransportFleetFactory {
 
+    private TransportFleetFactory() {
+    }
 
     public static Fleet getTransportFleet(VehicleType vehicleType) {
         switch (vehicleType) {
             case BUS:
-                return new BusFleet(getAvailableBuses());
+                return new BusFleet(VehiclesProvider.getAvailableBuses());
             case TROLLEYBUS:
-                return new TrolleybusFleet(getAvailableTrolleybus());
+                return new TrolleybusFleet(VehiclesProvider.getAvailableTrolleybus());
             default:
                 throw new TransportFleetException("No such transport fleet found for " + vehicleType);
         }
     }
 
-    private static List<Vehicle> getAvailableBuses() {
-        return List.of(
-                new Bus(Brand.BKM, Engine.ICE, 15.0, 35.0),
-                new Bus(Brand.BKM, Engine.ICE, 18.5, 35.0),
-                new Bus(Brand.SCHULER, Engine.ICE, 32.0, 24.0),
-                new Bus(Brand.SCHULER, Engine.ICE, 70.0, 14.0),
-                new Bus(Brand.SCHULER, Engine.ICE, 75.0, 14.0),
-                new Bus(Brand.SKODA, Engine.ICE, 32.0, 24.0),
-                new Bus(Brand.SKODA, Engine.ICE, 32.0, 20.0)
-        );
-    }
+    static class VehiclesProvider {
+        private VehiclesProvider() {
+        }
 
-    private static List<Vehicle> getAvailableTrolleybus() {
-        return List.of(
-                new Trolleybus(Brand.BKM, Engine.ELECTRIC, 25.0, 20.0),
-                new Trolleybus(Brand.BKM, Engine.ELECTRIC, 12.0, 43.0),
-                new Trolleybus(Brand.BKM, Engine.ELECTRIC, 19.2, 54.0),
-                new Trolleybus(Brand.SKODA, Engine.ELECTRIC, 42.0, 24.0),
-                new Trolleybus(Brand.SKODA, Engine.ELECTRIC, 32.0, 15.5),
-                new Trolleybus(Brand.SKODA, Engine.ELECTRIC, 36.0, 19.9)
-        );
+        private static List<Vehicle> getAvailableBuses() {
+            return List.of(
+                    new Bus(Brand.BKM, Engine.ICE, 15.0, 35.0),
+                    new Bus(Brand.BKM, Engine.ICE, 18.5, 35.0),
+                    new Bus(Brand.SCHULER, Engine.ICE, 32.0, 24.0),
+                    new Bus(Brand.SCHULER, Engine.ICE, 70.0, 14.0),
+                    new Bus(Brand.SCHULER, Engine.ICE, 75.0, 14.0),
+                    new Bus(Brand.SKODA, Engine.ICE, 32.0, 24.0),
+                    new Bus(Brand.SKODA, Engine.ICE, 32.0, 20.0)
+            );
+        }
+
+        private static List<Vehicle> getAvailableTrolleybus() {
+            return List.of(
+                    new Trolleybus(Brand.BKM, Engine.ELECTRIC, 25.0, 20.0),
+                    new Trolleybus(Brand.BKM, Engine.ELECTRIC, 12.0, 43.0),
+                    new Trolleybus(Brand.BKM, Engine.ELECTRIC, 19.2, 54.0),
+                    new Trolleybus(Brand.SKODA, Engine.ELECTRIC, 42.0, 24.0),
+                    new Trolleybus(Brand.SKODA, Engine.ELECTRIC, 32.0, 15.5),
+                    new Trolleybus(Brand.SKODA, Engine.ELECTRIC, 36.0, 19.9)
+            );
+        }
     }
 }
