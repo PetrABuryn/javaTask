@@ -1,6 +1,6 @@
 package app.enums;
 
-public enum Vehicle {
+public enum VehicleType {
     BUS,
     TROLLEYBUS,
     TRAM,

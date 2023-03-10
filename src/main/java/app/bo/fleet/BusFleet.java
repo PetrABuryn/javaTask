@@ -1,11 +1,11 @@
 package app.bo.fleet;
 
-import app.bo.transport.Transport;
+import app.bo.transport.ground.GroundVehicle;
 
 import java.util.List;
 
-public class BusFleet extends TransportFleet{
-    public BusFleet(List<Transport> vehicles) {
+public class BusFleet extends Fleet {
+    public BusFleet(List<GroundVehicle> vehicles) {
         super(vehicles);
     }
 }

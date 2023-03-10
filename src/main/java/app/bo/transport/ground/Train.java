@@ -1,10 +1,9 @@
 package app.bo.transport.ground;
 
-import app.bo.transport.GroundTransport;
 import app.enums.Brand;
 import app.enums.Engine;
 
-public class Train extends GroundTransport {
+public class Train extends GroundVehicle {
     public Train(Brand brand, Engine engine, double cost, double fuelConsumption) {
         super(brand, engine, cost, fuelConsumption);
     }

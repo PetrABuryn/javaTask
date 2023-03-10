@@ -3,8 +3,7 @@ package app.bo.transport;
 import app.enums.Brand;
 import app.enums.Engine;
 
-public interface Transport {
-
+public interface Vehicle {
 
     Brand getBrand();
 
