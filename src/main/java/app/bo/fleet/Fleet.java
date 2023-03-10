@@ -1,7 +1,6 @@
 package app.bo.fleet;
 
 import app.bo.transport.Vehicle;
-import app.bo.transport.ground.GroundVehicle;
 import app.enums.Brand;
 import app.enums.Engine;
 import app.exceptions.TransportException;
@@ -13,13 +12,13 @@ import java.util.function.Predicate;
 
 public abstract class Fleet {
 
-    private final List<GroundVehicle> vehicles;
+    private final List<Vehicle> vehicles;
 
-    protected Fleet(List<GroundVehicle> vehicles) {
+    protected Fleet(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
 
-    public List<GroundVehicle> getVehicles() {
+    public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
@@ -27,8 +26,8 @@ public abstract class Fleet {
         vehicles.sort(Comparator.comparing(Vehicle::getFuelConsumption).reversed());
     }
 
-    public List<GroundVehicle> findVehicles(Brand brand, Engine engine, Double cost, Double fuelConsumption) {
-        List<GroundVehicle> vs = vehicles.stream()
+    public List<Vehicle> findVehicles(Brand brand, Engine engine, Double cost, Double fuelConsumption) {
+        List<Vehicle> vs = vehicles.stream()
                 .filter(v -> {
                     if (Optional.ofNullable(brand).isPresent()) {
                         return v.getBrand().equals(brand);
@@ -67,8 +66,8 @@ public abstract class Fleet {
         return vs;
     }
 
-    public List<GroundVehicle> findVehicles(List<Predicate<Vehicle>> predicates) {
-        List<GroundVehicle> vs = vehicles.stream()
+    public List<Vehicle> findVehicles(List<Predicate<Vehicle>> predicates) {
+        List<Vehicle> vs = vehicles.stream()
                 .filter(predicates.stream().reduce(p -> true, Predicate::and))
                 .toList();
         if (vs.isEmpty()) {

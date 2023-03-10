@@ -3,22 +3,49 @@ package app.bo.transport;
 import app.enums.Brand;
 import app.enums.Engine;
 
-public interface Vehicle {
+public abstract class Vehicle {
 
-    Brand getBrand();
+    protected Brand brand;
+    protected Engine engine;
+    protected double cost;
+    protected double fuelConsumption;
 
-    void setBrand(Brand brand);
+    protected Vehicle(Brand brand, Engine engine, double cost, double fuelConsumption) {
+        this.brand = brand;
+        this.engine = engine;
+        this.cost = cost;
+        this.fuelConsumption = fuelConsumption;
+    }
 
-    Engine getEngine();
+    public Brand getBrand() {
+        return brand;
+    }
 
-    void setEngine(Engine engine);
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
 
-    double getCost();
+    public Engine getEngine() {
+        return engine;
+    }
 
-    void setCost(double cost);
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
 
-    double getFuelConsumption();
+    public double getCost() {
+        return cost;
+    }
 
-    void setFuelConsumption(double fuelConsumption);
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
 
+    public double getFuelConsumption() {
+        return fuelConsumption;
+    }
+
+    public void setFuelConsumption(double fuelConsumption) {
+        this.fuelConsumption = fuelConsumption;
+    }
 }

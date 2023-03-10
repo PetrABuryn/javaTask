@@ -5,7 +5,6 @@ import app.bo.fleet.Fleet;
 import app.bo.fleet.TrolleybusFleet;
 import app.bo.transport.Vehicle;
 import app.bo.transport.ground.Bus;
-import app.bo.transport.ground.GroundVehicle;
 import app.bo.transport.ground.Trolleybus;
 import app.enums.Brand;
 import app.enums.Engine;
@@ -28,7 +27,7 @@ public class TransportFleetFactory {
         }
     }
 
-    private static List<GroundVehicle> getAvailableBuses() {
+    private static List<Vehicle> getAvailableBuses() {
         return List.of(
                 new Bus(Brand.BKM, Engine.ICE, 15.0, 35.0),
                 new Bus(Brand.BKM, Engine.ICE, 18.5, 35.0),
@@ -40,7 +39,7 @@ public class TransportFleetFactory {
         );
     }
 
-    private static List<GroundVehicle> getAvailableTrolleybus() {
+    private static List<Vehicle> getAvailableTrolleybus() {
         return List.of(
                 new Trolleybus(Brand.BKM, Engine.ELECTRIC, 25.0, 20.0),
                 new Trolleybus(Brand.BKM, Engine.ELECTRIC, 12.0, 43.0),
