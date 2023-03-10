@@ -80,6 +80,10 @@ public abstract class Fleet {
         return vs;
     }
 
+    public void addVehicle(Vehicle vehicle) {
+        this.vehicles.add(vehicle);
+    }
+
     public void printVehicles() {
         this.vehicles.forEach(v -> log.info("{}", v));
     }

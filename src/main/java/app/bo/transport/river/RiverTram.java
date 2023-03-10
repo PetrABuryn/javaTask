@@ -7,7 +7,7 @@ import app.enums.Engine;
 
 public class RiverTram extends Vehicle implements RiverVehicle {
 
-    protected double displacement;
+    private double displacement;
 
     protected RiverTram(Brand brand, Engine engine, double cost, double fuelConsumption, double displacement) {
         super(brand, engine, cost, fuelConsumption);

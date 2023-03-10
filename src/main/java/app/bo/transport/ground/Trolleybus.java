@@ -6,17 +6,24 @@ import app.enums.Brand;
 import app.enums.Engine;
 
 public class Trolleybus extends Vehicle implements GroundVehicle {
+
+    private static final int MAX_SPEED = 90;
+
     public Trolleybus(Brand brand, Engine engine, double cost, double fuelConsumption) {
         super(brand, engine, cost, fuelConsumption);
+    }
+
+    public final void setMaxPermittedSpeed() {
+        super.setSpeed(MAX_SPEED);
     }
 
     @Override
     public String toString() {
         return "Trolleybus{" +
-                "brand=" + brand +
-                ", engine=" + engine +
-                ", cost=" + cost +
-                ", fuelConsumption=" + fuelConsumption +
+                "brand=" + getBrand() +
+                ", engine=" + getEngine() +
+                ", cost=" + getCost() +
+                ", fuelConsumption=" + getFuelConsumption() +
                 '}';
     }
 }

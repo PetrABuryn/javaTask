@@ -51,6 +51,11 @@ public class App {
          */
         log.info("Trolleybus fleet total cost is '{}'", trolleybusFleet.getFleetTotalCost());
         /*
+         * Print out total vehicles number of all current fleets
+         */
+        log.info("Total vehicles number of all fleets : {}", Vehicle.getNumberOfVehicles());
+
+        /*
          * Print out Trolleybus fleet vehicles filtered by the params
          * If argument is null then it is ignored while filtering
          */
@@ -58,5 +63,6 @@ public class App {
         log.info("Throws exception as no vehicles found");
         List<Vehicle> trBuses = trolleybusFleet.findVehicles(Brand.SCHULER, Engine.ICE, null, 24.0);
         log.info("Found vehicles: {}", trBuses);
+
     }
 }

@@ -9,4 +9,9 @@ public class Tram extends Vehicle implements GroundVehicle {
     public Tram(Brand brand, Engine engine, double cost, double fuelConsumption) {
         super(brand, engine, cost, fuelConsumption);
     }
+
+    @Override
+    public void setMaxPermittedSpeed() {
+
+    }
 }
