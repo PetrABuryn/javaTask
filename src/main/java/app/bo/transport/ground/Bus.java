@@ -13,6 +13,7 @@ public class Bus extends Vehicle implements GroundVehicle {
         super(brand, engine, cost, fuelConsumption);
     }
 
+    @Override
     public final void setMaxPermittedSpeed() {
         super.setSpeed(MAX_SPEED);
     }

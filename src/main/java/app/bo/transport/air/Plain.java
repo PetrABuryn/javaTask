@@ -7,6 +7,7 @@ import app.enums.Engine;
 
 public class Plain extends Vehicle implements AirVehicle {
 
+    private static final int MAX_SPEED = 600;
     private double wingSpan = 120.0;
 
     protected Plain(Brand brand, Engine engine, double cost, double fuelConsumption) {
@@ -25,6 +26,6 @@ public class Plain extends Vehicle implements AirVehicle {
 
     @Override
     public final void setMaxPermittedSpeed() {
-
+        super.setSpeed(MAX_SPEED);
     }
 }

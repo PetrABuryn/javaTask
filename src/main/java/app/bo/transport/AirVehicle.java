@@ -1,6 +1,6 @@
 package app.bo.transport;
 
-public interface AirVehicle{
+public interface AirVehicle {
     double getWingSpan();
 
     void setWingSpan(double wingSpan);
