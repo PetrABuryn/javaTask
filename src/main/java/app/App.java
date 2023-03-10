@@ -2,6 +2,7 @@ package app;
 
 import app.bo.fleet.Fleet;
 import app.bo.transport.Vehicle;
+import app.bo.transport.ground.Bus;
 import app.enums.Brand;
 import app.enums.Engine;
 import app.enums.VehicleType;
@@ -25,6 +26,10 @@ public class App {
          */
         log.info("Bus fleet:");
         busFleet.printVehicles();
+
+        Vehicle bus = new Bus(Brand.SCHULER, Engine.ICE, 100, 23.4);
+        log.info("Add a new bus to the fleet: {}", bus);
+        busFleet.addVehicle(bus);
         /*
          * Print out Buss fleet vehicles sorted by fuel consumption
          */
